@@ -34256,5 +34256,12 @@
     "author": "swiSwift",
     "description": "Quickly toggle Obsidian CSS Snippets with a status bar popup. Supports grouping, drag reorder, and i18n. - This plugin has not been manually reviewed by Obsidian staff.",
     "repo": "dlsdgj/Obsidian-SwiftSnippets"
+  },
+  {
+    "id": "mistudio-sync",
+    "name": "MiStudio Sync",
+    "author": "MiStudio",
+    "description": "Sync your MiStudio folders, notes, tasks and calendar to your vault, with optional two-way sync, a daily note, and per-folder selection.",
+    "repo": "mistudiostudy-sys/mistudio-obsidian-sync"
   }
 ]

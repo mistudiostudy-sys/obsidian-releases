@@ -4,8 +4,10 @@ const THEME_LABEL = 'Club Penguin Isla';
 
 const OPTIONS = {
   color: ['azul', 'rojo', 'verde', 'rosa', 'negro', 'morado', 'naranja', 'amarillo', 'verde-oscuro', 'azul-claro', 'cafe', 'durazno', 'aqua', 'lima'],
-  hat: ['ninguno', 'gorra-helice', 'fiesta', 'corona', 'vikingo', 'gorro-lana', 'bruja', 'copa'],
-  accessory: ['ninguno', 'bufanda', 'corbatin', 'lentes', 'audifonos'],
+  hat: ['ninguno', 'gorra-helice', 'fiesta', 'corona', 'bruja', 'calabaza', 'copa', 'gorro-lana'],
+  accessory: ['ninguno', 'bufanda', 'corbatin', 'lentes', 'audifonos', 'delantal', 'fantasma'],
+  puffleHat: ['ninguno', 'calabaza'],
+  scene: ['nieve', 'halloween'],
   puffleColor: ['azul', 'rosa', 'negro', 'verde', 'morado', 'rojo', 'amarillo', 'blanco', 'naranja', 'cafe', 'dorado']
 };
 
@@ -17,8 +19,11 @@ function readConfig() {
     hat: c.get('hat'),
     accessory: c.get('accessory'),
     puffleColor: c.get('puffleColor'),
+    puffleHat: c.get('puffleHat'),
     showPuffle: c.get('showPuffle'),
     speed: c.get('speed'),
+    size: c.get('size'),
+    scene: c.get('scene'),
     messages: c.get('messages')
   };
 }
@@ -75,6 +80,7 @@ class PenguinViewProvider {
 
   getHtml(webview, mediaUri) {
     const nonce = Array.from({ length: 32 }, () => Math.floor(Math.random() * 36).toString(36)).join('');
+    const sprites = webview.asWebviewUri(vscode.Uri.joinPath(mediaUri, 'sprites.js'));
     const script = webview.asWebviewUri(vscode.Uri.joinPath(mediaUri, 'pet.js'));
     const style = webview.asWebviewUri(vscode.Uri.joinPath(mediaUri, 'pet.css'));
     return `<!DOCTYPE html>
@@ -88,14 +94,15 @@ class PenguinViewProvider {
 </head>
 <body>
   <div id="scene">
+    <canvas id="bg"></canvas>
     <div id="snow"></div>
-    <div id="ground"></div>
-    <div id="puffle" class="actor" title="¡Tu puffle!"></div>
-    <div id="penguin" class="actor" title="¡Hazme click!"></div>
+    <canvas id="puffle" class="actor" title="¡Tu puffle!"></canvas>
+    <canvas id="penguin" class="actor" title="¡Hazme click!"></canvas>
     <div id="bubble" class="bubble hidden"></div>
     <button id="customizeBtn" title="Personalizar">🎨</button>
   </div>
   <div id="customizer" class="hidden"></div>
+  <script nonce="${nonce}" src="${sprites}"></script>
   <script nonce="${nonce}" src="${script}"></script>
 </body>
 </html>`;
@@ -110,6 +117,8 @@ async function customizeWithQuickPick(provider) {
       { label: '🎩 Sombrero', key: 'hat' },
       { label: '🧣 Accesorio', key: 'accessory' },
       { label: '🟣 Color del puffle', key: 'puffleColor' },
+      { label: '🎃 Gorro del puffle', key: 'puffleHat' },
+      { label: '🌙 Escenario', key: 'scene' },
       { label: '✏️ Nombre', key: 'name' },
       { label: '💬 Agregar frase', key: 'message' }
     ],

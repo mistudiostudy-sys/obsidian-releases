@@ -1,8 +1,8 @@
 {
   "name": "club-penguin-isla",
   "displayName": "Club Penguin Isla (fan theme)",
-  "description": "Tema de colores inspirado en Club Penguin con un pingüino y un puffle que caminan por VS Code mientras programas.",
-  "version": "1.0.0",
+  "description": "Tema de colores inspirado en Club Penguin con un pingüino y un puffle en pixel art que caminan por VS Code mientras programas.",
+  "version": "1.1.0",
   "publisher": "pinguino-fan",
   "license": "MIT",
   "icon": "media/icon.png",
@@ -88,20 +88,58 @@
         "clubPenguin.hat": {
           "type": "string",
           "default": "gorra-helice",
-          "enum": ["ninguno", "gorra-helice", "fiesta", "corona", "vikingo", "gorro-lana", "bruja", "copa"],
+          "enum": [
+            "ninguno",
+            "gorra-helice",
+            "fiesta",
+            "corona",
+            "bruja",
+            "calabaza",
+            "copa",
+            "gorro-lana"
+          ],
           "description": "Sombrero del pingüino."
         },
         "clubPenguin.accessory": {
           "type": "string",
           "default": "bufanda",
-          "enum": ["ninguno", "bufanda", "corbatin", "lentes", "audifonos"],
-          "description": "Accesorio del pingüino."
+          "enum": [
+            "ninguno",
+            "bufanda",
+            "corbatin",
+            "lentes",
+            "audifonos",
+            "delantal",
+            "fantasma"
+          ],
+          "description": "Ropa o accesorio del pingüino (delantal de café, disfraz de fantasma, etc.)."
         },
         "clubPenguin.puffleColor": {
           "type": "string",
           "default": "rosa",
-          "enum": ["azul", "rosa", "negro", "verde", "morado", "rojo", "amarillo", "blanco", "naranja", "cafe", "dorado"],
+          "enum": [
+            "azul",
+            "rosa",
+            "negro",
+            "verde",
+            "morado",
+            "rojo",
+            "amarillo",
+            "blanco",
+            "naranja",
+            "cafe",
+            "dorado"
+          ],
           "description": "Color de tu puffle."
+        },
+        "clubPenguin.puffleHat": {
+          "type": "string",
+          "default": "ninguno",
+          "enum": [
+            "ninguno",
+            "calabaza"
+          ],
+          "description": "Gorro del puffle."
         },
         "clubPenguin.showPuffle": {
           "type": "boolean",
@@ -115,9 +153,27 @@
           "maximum": 3,
           "description": "Velocidad al caminar (1 = normal)."
         },
+        "clubPenguin.size": {
+          "type": "integer",
+          "default": 3,
+          "minimum": 2,
+          "maximum": 5,
+          "description": "Tamaño de los píxeles (2 = pequeño, 5 = grande)."
+        },
+        "clubPenguin.scene": {
+          "type": "string",
+          "default": "nieve",
+          "enum": [
+            "nieve",
+            "halloween"
+          ],
+          "description": "Escenario del panel: nieve de día o noche de Halloween."
+        },
         "clubPenguin.messages": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "default": [
             "¡Waddle on! 🐧",
             "¡Sigue programando, vas increíble!",

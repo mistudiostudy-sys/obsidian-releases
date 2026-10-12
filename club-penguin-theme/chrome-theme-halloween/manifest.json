@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Club Penguin Halloween (fan theme)",
+  "version": "1.0.0",
+  "description": "Tema de Chrome inspirado en la fiesta de Halloween de Club Penguin: noche morada, calabazas, murciélagos y un pingüino con sombrero de bruja.",
+  "theme": {
+    "images": {
+      "theme_frame": "images/frame.png",
+      "theme_ntp_background": "images/ntp_background.png"
+    },
+    "colors": {
+      "frame": [33, 14, 56],
+      "frame_inactive": [24, 10, 40],
+      "frame_incognito": [18, 8, 28],
+      "frame_incognito_inactive": [14, 6, 22],
+      "toolbar": [58, 26, 92],
+      "toolbar_text": [255, 214, 160],
+      "toolbar_button_icon": [255, 160, 60],
+      "tab_text": [255, 214, 160],
+      "tab_background_text": [196, 168, 232],
+      "tab_background_text_inactive": [150, 128, 186],
+      "bookmark_text": [255, 190, 110],
+      "button_background": [255, 138, 31],
+      "omnibox_background": [32, 14, 52],
+      "omnibox_text": [255, 230, 205],
+      "ntp_background": [18, 8, 34],
+      "ntp_text": [255, 190, 110],
+      "ntp_link": [255, 150, 40],
+      "ntp_header": [255, 138, 31]
+    },
+    "tints": {
+      "buttons": [0.08, 1.0, 0.62]
+    },
+    "properties": {
+      "ntp_background_alignment": "bottom",
+      "ntp_background_repeat": "no-repeat"
+    }
+  }
+}
